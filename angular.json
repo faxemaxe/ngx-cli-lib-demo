@@ -134,6 +134,44 @@
           }
         }
       }
+    },
+    "NgxCliLibDemoCrud": {
+      "root": "projects/ngx-cli-lib-demo-crud",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "projects/ngx-cli-lib-demo-crud/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-cli-lib-demo-crud/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-cli-lib-demo-crud/src/test.ts",
+            "tsConfig": "projects/ngx-cli-lib-demo-crud/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-cli-lib-demo-crud/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-cli-lib-demo-crud/tsconfig.lint.json",
+              "projects/ngx-cli-lib-demo-crud/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   }
 }
