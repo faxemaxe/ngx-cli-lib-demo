@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
 
     this.jsonTestService.get(1)
       .subscribe(
-        (post) => {
-          console.log('post', post);
+        (get) => {
+          console.log('get', get);
         }
       );
   }

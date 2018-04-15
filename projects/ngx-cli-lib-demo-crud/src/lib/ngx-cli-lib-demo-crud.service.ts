@@ -10,7 +10,7 @@ export abstract class NgxCliLibDemoCrudService {
 
   protected abstract baseUrl: string;
   protected abstract endPoint: string;
-  protected abstract parseData: any;
+  protected abstract parseData(data: any): any;
 
   constructor(
     private httpClient: HttpClient,
@@ -21,11 +21,7 @@ export abstract class NgxCliLibDemoCrudService {
       `${this.baseUrl}/${this.endPoint}`,
       data
     ).pipe(
-      map(
-        (resp) => {
-          return this.parseData(resp);
-        }
-      )
+      map(this.parseData)
     );
   }
 
@@ -33,11 +29,7 @@ export abstract class NgxCliLibDemoCrudService {
     return this.httpClient.get(
       `${this.baseUrl}/${this.endPoint}/${id}`,
     ).pipe(
-      map(
-        (resp) => {
-          return this.parseData(resp);
-        }
-      )
+      map(this.parseData)
     );
   }
 
@@ -46,11 +38,7 @@ export abstract class NgxCliLibDemoCrudService {
       `${this.baseUrl}/${this.endPoint}`,
       data
     ).pipe(
-      map(
-        (resp) => {
-          return this.parseData(resp);
-        }
-      )
+      map(this.parseData)
     );
   }
 
@@ -58,11 +46,7 @@ export abstract class NgxCliLibDemoCrudService {
     return this.httpClient.delete(
       `${this.baseUrl}/${this.endPoint}/${id}`,
     ).pipe(
-      map(
-        (resp) => {
-          return this.parseData(resp);
-        }
-      )
+      map(this.parseData)
     );
   }
 

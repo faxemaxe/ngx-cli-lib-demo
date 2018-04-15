@@ -9,12 +9,11 @@ export class JsonTestService extends NgxCliLibDemoCrudService {
 
   protected baseUrl = 'https://jsonplaceholder.typicode.com';
   protected endPoint = 'posts';
-  protected parseData = (data) => data;
+  protected parseData(data) { return data; }
 
   constructor(
     http: HttpClient,
   ) {
     super(http);
-    console.log('this.baseUrl', this.baseUrl);
   }
 }
